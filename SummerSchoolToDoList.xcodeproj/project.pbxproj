@@ -50,7 +50,7 @@
 		20A32E4C2621BEF9009396C2 = {
 			isa = PBXGroup;
 			children = (
-				20A32E572621BEF9009396C2 /* SwiftUIList */,
+				20A32E572621BEF9009396C2 /* dfsaf */,
 				20A32E562621BEF9009396C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +63,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		20A32E572621BEF9009396C2 /* SwiftUIList */ = {
+		20A32E572621BEF9009396C2 /* dfsaf */ = {
 			isa = PBXGroup;
 			children = (
 				20A32E692621BF74009396C2 /* Model */,
@@ -74,7 +74,7 @@
 				20A32E612621BEFA009396C2 /* Info.plist */,
 				20A32E5E2621BEFA009396C2 /* Preview Content */,
 			);
-			path = SwiftUIList;
+			path = dfsaf;
 			sourceTree = "<group>";
 		};
 		20A32E5E2621BEFA009396C2 /* Preview Content */ = {
