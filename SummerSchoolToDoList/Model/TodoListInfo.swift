@@ -1,10 +1,3 @@
-//
-//  TodoListInfo.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/10/21.
-//
-
 import Foundation
 
 struct TodoListInfo: Codable {
@@ -84,7 +77,6 @@ struct TodoListInfo: Codable {
         }
     }
 
-    // To make the SwiftUI preview work we need to use test data
     init(testData: Bool) {
         if !testData {
             loadPersistedJsonData()

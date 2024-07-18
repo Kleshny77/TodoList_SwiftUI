@@ -1,13 +1,7 @@
-//
-//  TodoListView.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/10/21.
-//
-
 import SwiftUI
 
 struct TodoListView: View {
+    @ObservedObject var appViewModel = AppViewModel()
     @EnvironmentObject var viewModel: TodoListViewModel
     @State private var searchText = ""
     @State private var isShowingDeleteItemsConfirmationDialog = false

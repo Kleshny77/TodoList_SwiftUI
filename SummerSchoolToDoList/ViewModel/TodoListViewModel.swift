@@ -1,10 +1,3 @@
-//
-//  TodoListViewModel.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/10/21.
-//
-
 import Foundation
 import UserNotifications
 
@@ -55,7 +48,6 @@ class TodoListViewModel: ObservableObject {
     }
 
     func remove(indexSet: IndexSet) {
-        // Make sure the list is sorted, as it is in the UI
         todoListInfo.todos.sort { calculateSortedBy($0, $1) }
 
         indexSet.forEach {
@@ -119,7 +111,6 @@ class TodoListViewModel: ObservableObject {
             )
         ) { (error) in
             if error != nil {
-                // Some error happened, resetting notification id
                 if let itemIndex = self.todoListInfo.index(of: item) {
                     self.todoListInfo.todos[itemIndex].hasNotification = false
                 }

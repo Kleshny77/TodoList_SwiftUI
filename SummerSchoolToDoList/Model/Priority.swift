@@ -1,10 +1,3 @@
-//
-//  Priority.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/17/21.
-//
-
 import Foundation
 import SwiftUI
 

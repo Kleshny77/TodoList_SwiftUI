@@ -1,14 +1,8 @@
-//
-//  AddEditTodoView.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/10/21.
-//
-
 import SwiftUI
 import UserNotifications
 
 struct AddEditTodoView: View {
+    @ObservedObject var appViewModel = AppViewModel()
     @EnvironmentObject var viewModel: TodoListViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var todoItem: TodoListInfo.TodoItem
@@ -43,7 +37,6 @@ struct AddEditTodoView: View {
                 .disabled(todoItem.title.isEmpty)
             }
         }
-        // In SwiftUI we cannot attach 2 alerts at the same place, so one is attached here, and the other to the reminder section
         .alert(isPresented: $showNotificationExpiredDialog) {
             Alert(title: Text("Remove reminder or set a valid reminder date"))
         }
@@ -61,7 +54,7 @@ struct AddEditTodoView: View {
                 Text(Priority.high.title).tag(Priority.high.rawValue)
                     .foregroundColor(Priority.high.color)
             }
-            .labelsHidden() // Some SwiftUI bug prevents the label from being hidden, will hopefully be fixed
+            .labelsHidden()
         }
     }
 
@@ -86,10 +79,9 @@ struct AddEditTodoView: View {
             Button((todoItem.dueDateIsValid && todoItem.hasNotification) || insertOrUpdateNotification ? "Remove" : "Set reminder") {
                 withAnimation(.easeInOut) {
                     if !todoItem.dueDateIsValid {
-                        todoItem.dueDate = todoItem.dueDate.fromSwiftDate(Date()) // Set initial date to the current date
+                        todoItem.dueDate = todoItem.dueDate.fromSwiftDate(Date())
                     }
 
-                    // In case we press remove on an existing notificaiton, reset values to false
                     if (todoItem.hasNotification) {
                         todoItem.hasNotification = false
                         insertOrUpdateNotification = false
@@ -114,7 +106,6 @@ struct AddEditTodoView: View {
                             upsertItemAndPopView()
                         }
                     } else {
-                        // The user has previously denied the permission
                         notificationIsNotAuthorized = true
                     }
                 }

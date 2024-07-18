@@ -1,13 +1,7 @@
-//
-//  ListItemView.swift
-//  SwiftUIList
-//
-//  Created by Fredrik Eilertsen on 4/18/21.
-//
-
 import SwiftUI
 
 struct ListItemView: View {
+    @ObservedObject var appViewModel = AppViewModel()
     @EnvironmentObject var viewModel: TodoListViewModel
     let todoItem: TodoListInfo.TodoItem
 
